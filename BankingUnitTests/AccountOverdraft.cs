@@ -30,7 +30,7 @@ namespace BankingUnitTests
             catch (OverdraftException)
             {
 
-                throw new OverdraftException();
+                //Gulp!
             }
 
             Assert.Equal(openingBalance, account.GetBalance());
@@ -42,7 +42,7 @@ namespace BankingUnitTests
             var account = new BankAccount();
             var openingBalance = account.GetBalance();
 
-            account.Withdrawal(openingBalance + 1M);
+        
 
             Assert.Throws<OverdraftException>(() => account.Withdrawal(openingBalance + 1M));
         }

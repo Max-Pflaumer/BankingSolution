@@ -1,4 +1,5 @@
 ﻿using BankingDomain;
+using BankingUnitTests.TestDoubles;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,7 @@ namespace BankingUnitTests
         [Fact]
         public void BalanceStaysTheSame()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new DummyBonusCalculator());
             var openingBalance = account.GetBalance();
 
             try
@@ -39,7 +40,7 @@ namespace BankingUnitTests
         [Fact]
         public void OverDraftGivesException()
         {
-            var account = new BankAccount();
+            var account = new BankAccount(new DummyBonusCalculator());
             var openingBalance = account.GetBalance();
 
             

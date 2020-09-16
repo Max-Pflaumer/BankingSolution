@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using BankingDomain;
+using BankingUnitTests.TestDoubles;
 
 namespace BankingUnitTests
 {
@@ -12,7 +13,7 @@ namespace BankingUnitTests
         public void NewAccountsHaveCorrectBalance()
         {
             //Given
-            var account = new BankAccount();
+            var account = new BankAccount(new DummyBonusCalculator());
 
             //When
             decimal balance = account.GetBalance();
